@@ -7,6 +7,10 @@ const bodyParser = require('body-parser');
 const app = express();
 const router = express.Router();
 
+const routes = require('./routes/index.js');
+
+app.use('/api/v1', routes(router));
+
 const environment = process.env.NODE_ENV; // development
 const stage = require('./config')[environment];
 
